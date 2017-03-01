@@ -39,13 +39,9 @@
 
     $scope.arrowForOrder = function(attribute) {
       if (attribute === $scope.orderAttribute) {
-        if ($scope.descending) {
-          return "^";
-        } else {
-          return "v";
-        }
+        return $scope.descending ? "^" : "v";
       } else {
-        return "";
+        return " ";
       }
     };
 

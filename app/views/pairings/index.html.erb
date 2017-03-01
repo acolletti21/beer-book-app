@@ -21,17 +21,14 @@
     
         <table>
           <tr> 
-            <th ng-click="toggleOrderAttribute('title')">Title</th>
+            <th ng-click="toggleOrderAttribute('title')">Title {{ arrowForOrder('title') }}</th>
             <th ng-click="toggleOrderAttribute('author')">Author {{ arrowForOrder('author') }}</th>
             <th>Genre</th>
             <th>Beer</th>
             <th>ABV</th>
           </tr>
             
-          <tr>
-            <td>{{ arrowForOrder('title') }}</td>
-            <td>{{ arrowForOrder('author') }}</td>
-          </tr>
+     
 
         <tr ng-repeat="pairing in pairings | filter: { title: titleFilter } | orderBy:orderAttribute:ascending">
             <td>{{ pairing.title }}</td>
