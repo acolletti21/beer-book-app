@@ -28,6 +28,26 @@
       });
     };
 
+    $scope.toggleOrderAttribute = function(attribute) {
+      if (attribute === $scope.orderAttribute) {
+        $scope.ascending = true;
+      } else {
+        $scope.ascending = false;
+      }
+      $scope.orderAttribute = attribute;
+    };
+
+    $scope.arrowForOrder = function(attribute) {
+      if (attribute === $scope.orderAttribute) {
+        if ($scope.descending) {
+          return "^";
+        } else {
+          return "v";
+        }
+      } else {
+        return "";
+      }
+    };
 
     window.scope = $scope;
   });

@@ -3,6 +3,7 @@
 <div ng-app="app">
   <div ng-controller="stuffCtrl" ng-init="setup()">
     
+
     <div id="new-pairing-form">
       <li ng-repeat="error in errors track by index">{{ error }}</li>
       Title: <input type="text" ng-model="newPairingTitle">
@@ -13,17 +14,33 @@
       <button ng-click="addPairing(newPairingTitle, newPairingAuthor, newPairingGenre, newPairingBeerName, newPairingAlcohol)">Add Pairing</button>
     </div>
 
-    <h4>Total number of pairings: {{ pairings.length }}</h4>
+      <input type="text" ng-model="titleFilter"> Search
 
-    <div ng-repeat="pairing in pairings">
-      <div>
-        <p>{{ pairing.title }}</p>
-        <p>{{ pairing.author }}</p>
-        <p>{{ pairing.genre }}</p>
-        <p>{{ pairing.beer_name }}</p>
-        <p>{{ pairing.alcohol }}</p>
-      </div>
-    </div>
+
+    <h4>Total number of pairings: {{ pairings.length }}</h4>
+    
+        <table>
+          <tr> 
+            <th ng-click="toggleOrderAttribute('title')">Title</th>
+            <th ng-click="toggleOrderAttribute('author')">Author {{ arrowForOrder('author') }}</th>
+            <th>Genre</th>
+            <th>Beer</th>
+            <th>ABV</th>
+          </tr>
+            
+          <tr>
+            <td>{{ arrowForOrder('title') }}</td>
+            <td>{{ arrowForOrder('author') }}</td>
+          </tr>
+
+        <tr ng-repeat="pairing in pairings | filter: { title: titleFilter } | orderBy:orderAttribute:ascending">
+            <td>{{ pairing.title }}</td>
+            <td>{{ pairing.author }}</td>
+            <td>{{ pairing.genre }}</td>
+            <td>{{ pairing.beer_name }}</td>
+            <td>{{ pairing.alcohol }}</td>
+        </table>
+
 
   </div>
 </div>
