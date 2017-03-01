@@ -1,8 +1,17 @@
 table {
   display: block;
-  padding-left: 5%;
+  padding-left: 10%;
 }
 
 th {
   background-color: gray;
+}
+
+h1 {
+  text-align: center;
+}
+
+.be-centered {
+  width: 50%;
+  margin: auto;
 }

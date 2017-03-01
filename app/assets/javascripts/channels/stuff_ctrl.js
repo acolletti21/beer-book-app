@@ -3,10 +3,15 @@
 
   angular.module("app").controller("stuffCtrl", function($scope, $http){
     $scope.setup = function() {
-        $http.get('/api/v1/pairings.json').then(function(response){
+      getPairings();
+    };
+
+    function getPairings() {
+      $http.get('/api/v1/pairings.json').then(function(response){
         $scope.pairings = response.data;
       });
-    };
+    }
+
 
     $scope.addPairing = function(newTitle, newAuthor, newGenre, newBeerName, newAlcohol) {
       var pairing = {
@@ -29,10 +34,10 @@
     };
 
     $scope.toggleOrderAttribute = function(attribute) {
-      if (attribute === $scope.orderAttribute) {
-        $scope.ascending = true;
+      if (attribute === $scope.orderAttribute){
+        $scope.descending = true;
       } else {
-        $scope.ascending = false;
+        $scope.descending = false;
       }
       $scope.orderAttribute = attribute;
     };
