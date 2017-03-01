@@ -1,0 +1,29 @@
+<h1>Pairings</h1>
+
+<div ng-app="app">
+  <div ng-controller="stuffCtrl" ng-init="setup()">
+    
+    <div id="new-pairing-form">
+      <li ng-repeat="error in errors track by index">{{ error }}</li>
+      Title: <input type="text" ng-model="newPairingTitle">
+      Author: <input type="text" ng-model="newPairingAuthor">
+      Genre: <input type="text" ng-model="newPairingGenre">
+      Beer: <input type="text" ng-model="newPairingBeerName">
+      ABV: <input type="text" ng-model="newPairingAlcohol">
+      <button ng-click="addPairing(newPairingTitle, newPairingAuthor, newPairingGenre, newPairingBeerName, newPairingAlcohol)">Add Pairing</button>
+    </div>
+
+    <h4>Total number of pairings: {{ pairings.length }}</h4>
+
+    <div ng-repeat="pairing in pairings">
+      <div>
+        <p>{{ pairing.title }}</p>
+        <p>{{ pairing.author }}</p>
+        <p>{{ pairing.genre }}</p>
+        <p>{{ pairing.beer_name }}</p>
+        <p>{{ pairing.alcohol }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>

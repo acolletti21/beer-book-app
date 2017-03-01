@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/' => 'pairings#index'
+  
   namespace :api do
     namespace :v1 do
       get '/pairings' => 'pairings#index'

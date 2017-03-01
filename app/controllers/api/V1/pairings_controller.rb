@@ -11,7 +11,11 @@ class Api::V1::PairingsController < ApplicationController
                               beer_name: params[:beer_name],
                               alcohol: params[:alcohol]
                               )
-    render :show
+    if @pairing.save
+      render :show
+    else
+      render json: @pairing.errors.full_messages, status: 422
+    end
   end
 
   def show

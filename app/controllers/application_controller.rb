@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
-    before_action :restrict_access
+    # before_action :restrict_access
+    #commenting this out so we can use the api without token
+    
 
   private
 
@@ -11,5 +13,6 @@ class ApplicationController < ActionController::Base
                   api_key: api_key,
                   email: request.headers['X-User-Email']
                   )
+    end  
   end
 end
