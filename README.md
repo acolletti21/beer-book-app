@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```bundle```
 
-Things you may want to cover:
+```rake db:migrate```
 
-* Ruby version
+```rake db:seed```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+navigate to localhost:300/pairings to view, sort, and create pairings
